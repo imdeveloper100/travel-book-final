@@ -213,6 +213,7 @@ function Logout() {
         sx={{ backgroundColor: "#00000055", p: "5px 0px" }}
       >
         <Toolbar>
+          <img src="/travel-book-logo.jpeg" />
           <Typography
             variant="h5"
             noWrap
@@ -266,6 +267,17 @@ function Logout() {
                   <Typography textAlign="center">Posts</Typography>
                 </Link>
               </MenuItem>
+
+              <MenuItem>
+                <Link href="/about">
+                  <Typography textAlign="center">About</Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/contact">
+                  <Typography textAlign="center">Contact Us</Typography>
+                </Link>
+              </MenuItem>
               {IsLogin && (
                 <MenuItem>
                   <Link href="/upload">
@@ -316,6 +328,30 @@ function Logout() {
                 }}
               >
                 Posts
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button
+                sx={{
+                  color: "white",
+                  display: "block",
+                  ml: "15px",
+                  textTransform: "capitalize",
+                }}
+              >
+                About
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                sx={{
+                  color: "white",
+                  display: "block",
+                  ml: "15px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Contact Us
               </Button>
             </Link>
             {IsLogin&& <Link href="/upload">
