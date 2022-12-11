@@ -5,6 +5,24 @@ import Styles from "./contact.module.css";
 
 export default function HomePage() {
   const [search, setsearch] = useState("");
+  const [details, setDetails] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setDetails((prev) => {
+      return{...prev, [name]: value};
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(details);
+  }
 
   return (
     <>
@@ -56,10 +74,11 @@ export default function HomePage() {
                 </div>
               </div>
               <div className={Styles.contactCol}>
-                <form action="form-handler.php" method="POST">
+                <form onSubmit={handleSubmit} method="POST">
                   <input
                     type="text"
                     name="name"
+                    onChange={handleChange}
                     id=""
                     placeholder="Enter your name"
                     aria-hidden="true"
@@ -68,6 +87,7 @@ export default function HomePage() {
                   <input
                     type="email"
                     name="email"
+                    onChange={handleChange}
                     id=""
                     placeholder="Enter your email"
                     aria-hidden="true"
@@ -76,6 +96,7 @@ export default function HomePage() {
                   <input
                     type="text"
                     name="subject"
+                    onChange={handleChange}
                     id=""
                     placeholder="Message subject"
                     aria-hidden="true"
@@ -83,6 +104,7 @@ export default function HomePage() {
                   />
                   <textarea
                     name="message"
+                    onChange={handleChange}
                     rows="8"
                     placeholder="Message"
                     required
